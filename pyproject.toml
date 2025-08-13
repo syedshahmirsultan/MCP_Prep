@@ -9,6 +9,7 @@ authors = [
 requires-python = ">=3.13"
 dependencies = [
     "mcp>=1.12.1",
+    "pydantic>=2.11.7",
     "requests>=2.32.4",
     "uvicorn>=0.35.0",
 ]
