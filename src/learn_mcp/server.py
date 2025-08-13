@@ -1,5 +1,6 @@
 from mcp.server.fastmcp import FastMCP
-
+from mcp.server.fastmcp.prompts import base
+from mcp.types import PromptMessage,TextContent
 
 mcp = FastMCP(name="Server 1", stateless_http=True)
 
@@ -40,16 +41,16 @@ def document(doc_name:str):
 
 
 @mcp.prompt(name="MCP Prompt",description="This is a MCP Prompt")
-def mcp_prompt(doc_content:str):
+def mcp_prompt(doc_content:str)->list[base.Message]:
     prompt = f"""You are a helpful assistant that can answer questions about the following document:
     {doc_content}
     """
-    return prompt
+    return [base.UserMessage(prompt)]
 
 
 @mcp.prompt(name="Summarize",description="Sumarize the given document")
-def summarize(doc_content:str):
+def summarize(doc_content:str)->list[PromptMessage]:
     prompt = f"""You are a helpful assistant that can summarize the following document:
     {doc_content}
     """
-    return prompt
+    return [PromptMessage(role="user",content=TextContent(type="text",text=prompt))]
