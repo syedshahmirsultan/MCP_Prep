@@ -48,6 +48,13 @@ class MCPClient:
         return result.contents[0].text
 
 
+    async def list_prompts(self):
+        print("Listing Prompts")
+        return await self.session.list_prompts()
+
+    async def call_prompt(self,prompt_name:str,arguments:dict):
+        print("Calling Prompt")
+        return await self.session.get_prompt(prompt_name,arguments)
 
 
 async def main():
@@ -65,6 +72,10 @@ async def main():
         print("Template Resource Result:",result)
         listOfDocs = await client.read_resource("docs://documents")
         print("List of Docs:",listOfDocs)
+        prompt = await client.list_prompts()
+        print("List of Prompts:",prompt)
+        call_prompt = await client.call_prompt("Summarize",{"doc_content":listOfDocs})
+        print("Result of MCP Prompt:",call_prompt)
 
 # Run the main function
 def run_main():

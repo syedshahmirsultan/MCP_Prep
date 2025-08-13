@@ -36,3 +36,20 @@ def document(doc_name:str):
     "Returns the Doc Content"
     print("Returning Doc Content for ",docs[doc_name])
     return docs[doc_name]
+
+
+
+@mcp.prompt(name="MCP Prompt",description="This is a MCP Prompt")
+def mcp_prompt(doc_content:str):
+    prompt = f"""You are a helpful assistant that can answer questions about the following document:
+    {doc_content}
+    """
+    return prompt
+
+
+@mcp.prompt(name="Summarize",description="Sumarize the given document")
+def summarize(doc_content:str):
+    prompt = f"""You are a helpful assistant that can summarize the following document:
+    {doc_content}
+    """
+    return prompt
