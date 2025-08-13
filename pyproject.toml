@@ -15,7 +15,7 @@ dependencies = [
 
 [project.scripts]
 learn-mcp = "learn_mcp:main"
-run-mcp-client = "learn_mcp.mcp_client:run_main"
+mcp-client = "learn_mcp.mcp_client:run_main"
 
 [build-system]
 requires = ["hatchling"]
