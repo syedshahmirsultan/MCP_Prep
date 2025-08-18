@@ -47,7 +47,3 @@ if __name__ == "__main__":
         asyncio.run(main())
     except Exception as e:
         print(f"An unhandled error occurred in the agent script: {e}")
-
-
-##GEMINI_API_KEY = AIzaSyApU3pAQuPj1KHEwoSpFpiFLsm8fLMS4TI
-##OPENAI_API_KEY = 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
