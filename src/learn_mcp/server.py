@@ -12,7 +12,7 @@ def add_two_nums(a:int,b:int):
     print("Adding two nums !")
     return a+b
 
-@mcp.tool()
+@mcp.tool(name="get_mood",description="This tool Gets Mood")
 def get_mood(name:str):
     print("Getting Modd")
     return f'{name} is feeling good'
